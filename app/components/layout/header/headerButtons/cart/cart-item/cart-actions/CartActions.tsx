@@ -1,5 +1,3 @@
-import { AddIcon, MinusIcon } from '@chakra-ui/icons'
-import { Button, HStack, Input, useNumberInput } from '@chakra-ui/react'
 import { FC } from 'react'
 
 import { useActions } from '@/hooks/useActions'
@@ -25,16 +23,16 @@ const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 
 	return (
 		<div className='mt-3'>
-			<HStack>
-				<Button
+			<div>
+				<button
 					{...dec}
 					onClick={() => changeQuantity({ id: item.id, type: 'minus' })}
 					disabled={quantity === 1}
 				>
-					<MinusIcon fontSize={13} />
-				</Button>
+					-
+				</button>
 
-				<Input
+				<input
 					{...input}
 					focusBorderColor='green.400'
 					readOnly
@@ -42,24 +40,19 @@ const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 					value={quantity}
 				/>
 
-				<Button
+				<button
 					{...inc}
 					onClick={() => changeQuantity({ id: item.id, type: 'plus' })}
 				>
-					<AddIcon fontSize={13} />
-				</Button>
-			</HStack>
+					+
+				</button>
+			</div>
 
-			<Button
-				variant='unstyled'
-				color='#F23C3D'
-				marginTop={2}
-				size='sm'
-				opacity={0.8}
+			<button
 				onClick={() => removeFromCart({ id: item.id })}
 			>
 				Remove
-			</Button>
+			</button>
 		</div>
 	)
 }

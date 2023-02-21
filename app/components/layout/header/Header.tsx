@@ -1,16 +1,20 @@
 import { FC } from 'react'
 
+import HeaderMenu from './menu/HeaderMenu'
+import HeaderLogo from './header-logo/HeaderLogo'
+import HeaderButtons from './headerButtons/HeaderButtons'
+import HeaderProfile from './headerProfile/HeaderProfile'
+
 import styles from './Header.module.scss'
-import Cart from './cart/Cart'
-import Menu from './menu/Menu'
-import Search from './search/Search'
+
 
 const Header: FC = () => {
 	return (
 		<header className={styles.header}>
-			<Menu />
-			<Search />
-			<Cart />
+			<HeaderLogo />
+			<HeaderMenu />
+			<HeaderButtons />
+			<HeaderProfile />
 		</header>
 	)
 }
